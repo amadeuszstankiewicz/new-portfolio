@@ -26,11 +26,15 @@ export default function ProjectItem({moveImageProjects, projectData}) {
 
     const isSmallScreen = screenWidth < 1023 ? true : false;
 
+    if(!projectData) {
+        return;
+    }
+
     return (
         <>
              <Popup
                 trigger={
-                    <img className="project-box select-none drop-shadow-lg rounded-lg transition ease-linear hover:cursor-pointer hover:scale-105" src={projectData.heroImg} draggable="false" alt=""
+                    <img className="project-box select-none drop-shadow-lg rounded-lg transition ease-linear hover:cursor-pointer hover:scale-105" src={projectData?.heroImg} draggable="false" alt=""
                         style={{
                             objectPosition: `${moveImageProjects + 100}% 50%`
                         }}/>
@@ -44,7 +48,7 @@ export default function ProjectItem({moveImageProjects, projectData}) {
                                 
                                 <div className="relative mx-auto w-full py-5 px-1 sm:w-[540px] lg:w-[720px]">
                                     {
-                                        projectData.images.length > 0 ? (
+                                        projectData?.images.length > 0 ? (
                                             <Carousel 
                                                 className="justify-content-center items-center rounded-lg"
                                                 responsive={responsive}
@@ -63,14 +67,14 @@ export default function ProjectItem({moveImageProjects, projectData}) {
                                         )
                                     }
                                             
-                                    <h1 className="text-3xl font-bold text-center my-3">{projectData.title}</h1>
+                                    <h1 className="text-3xl font-bold text-center my-3">{projectData?.title}</h1>
 
                                     <p className="mb-3">
-                                        {projectData.description}
+                                        {projectData?.description}
                                     </p>
 
                                     {
-                                        projectData.demoUrls.length > 0 ? (
+                                        projectData?.demoUrls.length > 0 ? (
                                             projectData.demoUrls.map((demoUrl, index) => 
                                                 <div key={index} className="w-full">
                                                     <a className="flex w-fit gap-2 mb-3 transition ease-linear hover:text-cyan-500" href={demoUrl} target="_blank">
@@ -85,7 +89,7 @@ export default function ProjectItem({moveImageProjects, projectData}) {
                                     }
 
                                     {
-                                        projectData.descriptionUrls.length > 0 ? (
+                                        projectData?.descriptionUrls.length > 0 ? (
                                             projectData.descriptionUrls.map((descriptionUrl, index) => 
                                                 <div key={index} className="w-full">
                                                     <a className="flex w-fit gap-2 mb-3 transition ease-linear hover:text-cyan-500" href={descriptionUrl} target="_blank">
@@ -100,7 +104,7 @@ export default function ProjectItem({moveImageProjects, projectData}) {
                                     }
 
                                     {
-                                        projectData.githubUrls.length > 0 ? (
+                                        projectData?.githubUrls.length > 0 ? (
                                             projectData.githubUrls.map((githubUrl, index) => 
                                                 <div key={index} className="w-full">
                                                     <a className="flex w-fit gap-2 mb-3 transition ease-linear hover:text-cyan-500" href={githubUrl} target="_blank">
@@ -114,7 +118,7 @@ export default function ProjectItem({moveImageProjects, projectData}) {
                                     
 
                                     {
-                                        projectData.techIcons.length > 0 ? (
+                                        projectData?.techIcons.length > 0 ? (
                                             <div className="flex gap-2">
                                                 {
                                                     projectData.techIcons.map((icon, index) => 

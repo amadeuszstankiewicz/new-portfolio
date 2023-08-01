@@ -123,7 +123,7 @@ export default function Projects({projectsRef}) {
     ]
 
     const divRef = useRef(null);
-    const { isMouseClicked, startingMousePosition, mousePosition } = useMouseMove();
+    const [isMouseClicked, startingMousePosition, mousePosition] = useMouseMove();
     const [moveProjects, setMoveProjects] = useState('0px');
     const [moveImageProjects, setMoveImageProjects] = useState('0px');
     const [prevPercentage, setPrevPercentage] = useState(0);
@@ -137,10 +137,11 @@ export default function Projects({projectsRef}) {
         }
 
         if(isMouseClicked) {
+            
             if(!isMouseDown) {
                 setIsMouseDown(true);
             }
-            const mouseDelta = parseFloat(startingMousePosition.x) - mousePosition.x;
+            const mouseDelta = parseFloat(startingMousePosition[0]) - mousePosition[0];
             const maxDelta = window.innerWidth / 2;
             const percentage = (-1) * (mouseDelta / maxDelta) * 100;
             let nextPercentage = parseFloat(prevPercentage) + percentage;
@@ -167,7 +168,6 @@ export default function Projects({projectsRef}) {
 
     const handleWheel = (event) => {
         const popupRootDiv = document.getElementById('popup-root');
-    
         if(popupRootDiv?.hasChildNodes()) {
             return;
         }

@@ -1,38 +1,38 @@
 import { useEffect, useState } from "react";
 
 function useMouseMove() {
-    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+    const [mousePosition, setMousePosition] = useState(0, 0);
     const [isMouseClicked, setIsMouseClicked] = useState(false);
-    const [startingMousePosition, setStartingMousePosition] = useState({ x: 0, y: 0 });
+    const [startingMousePosition, setStartingMousePosition] = useState(0, 0);
   
     const handleMouseMove = (event) => {
-      setMousePosition({ x: event.clientX, y: event.clientY });
+      setMousePosition([event.clientX, event.clientY]);
     };
 
     const handleMouseDown = (event) => {
-        setStartingMousePosition({ x: event.clientX, y: event.clientY });
+        setStartingMousePosition([event.clientX, event.clientY]);
         setIsMouseClicked(true);
     };
 
     const handleMouseUp = () => {
         setIsMouseClicked(false);
-        setStartingMousePosition({ x: 0, y: 0 });
+        setStartingMousePosition([0, 0]);
     };
 
     const handleTouchMove = (event) => {
       const touch = event.touches[0];
-      setMousePosition({ x: touch.clientX, y: touch.clientY });
+      setMousePosition([touch.clientX, touch.clientY]);
     };
   
     const handleTouchStart = (event) => {
       const touch = event.touches[0];
-      setStartingMousePosition({ x: touch.clientX, y: touch.clientY });
+      setStartingMousePosition([touch.clientX, touch.clientY]);
       setIsMouseClicked(true);
     };
   
     const handleTouchEnd = () => {
       setIsMouseClicked(false);
-      setStartingMousePosition({ x: 0, y: 0 });
+      setStartingMousePosition([0, 0]);
     };
   
     useEffect(() => {
@@ -55,7 +55,11 @@ function useMouseMove() {
       };
     }, []);
   
-    return {isMouseClicked, startingMousePosition, mousePosition};
+    return [
+      isMouseClicked,
+      startingMousePosition,
+      mousePosition
+    ];
   }
   
   export default useMouseMove;
