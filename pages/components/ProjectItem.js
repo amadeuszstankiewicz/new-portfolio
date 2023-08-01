@@ -175,7 +175,7 @@ export default function ProjectItem({moveImageProjects, projectData}) {
                                                                     }
                                                                 </div>
                                                             </div>
-                                                            <h3 className="font-bold text-xl">{smallProject.title} test</h3>
+                                                            <h3 className="font-bold text-xl">{smallProject.title}</h3>
 
                                                             <div className="flex flex-col flex-grow">
                                                                 <p className="mt-3">

@@ -110,6 +110,13 @@ export default function Projects({projectsRef}) {
                     demoUrl: "",
                     githubUrl: "https://github.com/amadeuszstankiewicz/top_clips_movie",
                     techIcons: ["python"]
+                },
+                {
+                    title: "Old portfolio",
+                    description: "My old portfolio page. The portfolio was written using a js library - React. When creating some of the animations on the site, I used the p5js library.",
+                    demoUrl: "https://astankiewicz.netlify.app/",
+                    githubUrl: "https://github.com/amadeuszstankiewicz/Portfolio",
+                    techIcons: ["javascript", "react"]
                 }
             ]
         },
@@ -124,6 +131,11 @@ export default function Projects({projectsRef}) {
     const [isMouseDown, setIsMouseDown] = useState(false);
 
     useEffect(() => {
+        const popupRootDiv = document.getElementById('popup-root');
+        if(popupRootDiv.hasChildNodes()) {
+            return;
+        }
+
         if(mousePosition.isMouseClicked) {
             if(!isMouseDown) {
                 setIsMouseDown(true);
@@ -150,8 +162,34 @@ export default function Projects({projectsRef}) {
         }
     }, [mousePosition])
 
+
+
+
+    const handleWheel = (event) => {
+        const popupRootDiv = document.getElementById('popup-root');
+        if(popupRootDiv.hasChildNodes()) {
+            return;
+        }
+
+        let scrollSpeed = -event.deltaY/35;
+        
+        let nextPercentage = parseFloat(prevPercentage) + scrollSpeed;
+
+        if(nextPercentage > 0) {
+            nextPercentage = 0
+        }
+        if(nextPercentage < -100) {
+            nextPercentage = -100
+        }
+
+        setMoveProjects(nextPercentage)
+        setMoveImageProjects(nextPercentage)
+        setPrevPercentage( parseFloat(nextPercentage) );
+    };
+
+
     return (
-        <div ref={projectsRef} className="relative min-h-screen justify-center py-[64px] gap-5 transform overflow-hidden">
+        <div ref={projectsRef} onWheel={handleWheel} className="relative min-h-screen justify-center py-[64px] gap-5 transform overflow-hidden">
             <div className="absolute w-max flex gap-5 top-1/2 left-1/2 -translate-y-1/2"
                 ref={divRef}
                 style={{
