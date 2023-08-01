@@ -30,7 +30,7 @@ export default function ProjectItem({moveImageProjects, projectData}) {
         <>
              <Popup
                 trigger={
-                    <img className="project-box select-none drop-shadow-lg rounded-lg transition ease-linear hover:cursor-pointer hover:scale-105" src={projectData.heroImg} draggable="false" 
+                    <img className="project-box select-none drop-shadow-lg rounded-lg transition ease-linear hover:cursor-pointer hover:scale-105" src={projectData.heroImg} draggable="false" alt=""
                         style={{
                             objectPosition: `${moveImageProjects + 100}% 50%`
                         }}/>
@@ -51,15 +51,15 @@ export default function ProjectItem({moveImageProjects, projectData}) {
                                                 swipeable={isSmallScreen}
                                                 draggable={isSmallScreen}>
 
-                                                <img onClick={() => setHugeImage(projectData.heroImg)} className="hover:cursor-zoom-in" src={projectData.heroImg} />
+                                                <img onClick={() => setHugeImage(projectData.heroImg)} className="hover:cursor-zoom-in" src={projectData.heroImg} alt="" />
                                                 {
                                                     projectData.images.map((img, index) =>
-                                                        <img key={index} onClick={() => setHugeImage(img)} className="hover:cursor-zoom-in" src={img} />
+                                                        <img key={index} onClick={() => setHugeImage(img)} className="hover:cursor-zoom-in" src={img} alt="" />
                                                     )
                                                 }
                                             </Carousel>
                                         ) : (
-                                            <img onClick={() => setHugeImage(projectData.heroImg)} className="rounded-lg hover:cursor-zoom-in" src={projectData.heroImg} />
+                                            <img onClick={() => setHugeImage(projectData.heroImg)} className="rounded-lg hover:cursor-zoom-in" src={projectData.heroImg} alt="" />
                                         )
                                     }
                                             
@@ -235,7 +235,7 @@ export default function ProjectItem({moveImageProjects, projectData}) {
                                     hugeImage !== '' ? (
                                         <div className="fixed flex justify-center items-center rounded-lg top-0 left-0 w-full h-full bg-black bg-opacity-90 z-top hover:cursor-zoom-out"
                                             onClick={() => setHugeImage('')}>
-                                            <img className="max-h-full max-w-full"src={hugeImage} />
+                                            <img className="max-h-full max-w-full"src={hugeImage} alt="" />
                                         </div>
                                     ) : null
                                 }
