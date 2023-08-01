@@ -11,6 +11,12 @@ body {
     object-fit: cover;
     object-position: 100% center;
 }
+@media (max-width:730px) {
+    .project-box {
+        width: 60vmin;
+        height: 84vmin;
+    }
+}
 .react-multi-carousel-item {
     align-items: center;
     justify-content: center;

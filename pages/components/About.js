@@ -13,7 +13,7 @@ import { AiFillHtml5 } from 'react-icons/ai';
 export default function About({aboutRef}) {
     return (
         <div ref={aboutRef} className="relative min-h-screen py-[64px] px-1 flex items-center justify-center lg:px-0">
-            <div className="relative container mx-auto">
+            <div className="relative container max-h-[calc(100vh-68px)] overflow-y-auto mx-auto">
                 <div className="flex flex-wrap items-center justify-center gap-5 lg:flex-nowrap">
 
                     <div className="flex items-center justify-center w-full lg:w-1/2">

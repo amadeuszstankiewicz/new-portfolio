@@ -11,7 +11,7 @@ export default function Home() {
 	const contactRef = useRef(null);
 
 	return (
-		<main className="relative min-h-screen">
+		<main className="relative min-h-screen transition ease-linear">
 			<Head>
 				<title>Portfolio - Amadeusz Stankiewicz</title>
 			</Head>

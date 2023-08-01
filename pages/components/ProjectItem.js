@@ -53,8 +53,8 @@ export default function ProjectItem({moveImageProjects, projectData}) {
 
                                                 <img onClick={() => setHugeImage(projectData.heroImg)} className="hover:cursor-zoom-in" src={projectData.heroImg} />
                                                 {
-                                                    projectData.images.map((img) =>
-                                                        <img onClick={() => setHugeImage(img)} className="hover:cursor-zoom-in" src={img} />
+                                                    projectData.images.map((img, index) =>
+                                                        <img key={index} onClick={() => setHugeImage(img)} className="hover:cursor-zoom-in" src={img} />
                                                     )
                                                 }
                                             </Carousel>
@@ -71,8 +71,8 @@ export default function ProjectItem({moveImageProjects, projectData}) {
 
                                     {
                                         projectData.demoUrls.length > 0 ? (
-                                            projectData.demoUrls.map((demoUrl) => 
-                                                <div className="w-full">
+                                            projectData.demoUrls.map((demoUrl, index) => 
+                                                <div key={index} className="w-full">
                                                     <a className="flex w-fit gap-2 mb-3 transition ease-linear hover:text-cyan-500" href={demoUrl} target="_blank">
                                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                                                             <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
@@ -86,8 +86,8 @@ export default function ProjectItem({moveImageProjects, projectData}) {
 
                                     {
                                         projectData.descriptionUrls.length > 0 ? (
-                                            projectData.descriptionUrls.map((descriptionUrl) => 
-                                                <div className="w-full">
+                                            projectData.descriptionUrls.map((descriptionUrl, index) => 
+                                                <div key={index} className="w-full">
                                                     <a className="flex w-fit gap-2 mb-3 transition ease-linear hover:text-cyan-500" href={descriptionUrl} target="_blank">
                                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                                                             <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
@@ -101,8 +101,8 @@ export default function ProjectItem({moveImageProjects, projectData}) {
 
                                     {
                                         projectData.githubUrls.length > 0 ? (
-                                            projectData.githubUrls.map((githubUrl) => 
-                                                <div className="w-full">
+                                            projectData.githubUrls.map((githubUrl, index) => 
+                                                <div key={index} className="w-full">
                                                     <a className="flex w-fit gap-2 mb-3 transition ease-linear hover:text-cyan-500" href={githubUrl} target="_blank">
                                                         <AiFillGithub className="w-6 h-6"/>
                                                         Repo
@@ -148,8 +148,8 @@ export default function ProjectItem({moveImageProjects, projectData}) {
                                         projectData?.smallProjects?.length > 0 ? (
                                             <div className="grid gap-5 mt-5 grid-cols-1 md:grid-cols-2">
                                                 {
-                                                    projectData.smallProjects.map((smallProject) => 
-                                                        <div className="relative flex flex-col rounded shadow-md p-3 bg-black bg-opacity-5 dark:bg-white dark:bg-opacity-5">
+                                                    projectData.smallProjects.map((smallProject, index) => 
+                                                        <div key={index} className="relative flex flex-col rounded shadow-md p-3 bg-black bg-opacity-5 dark:bg-white dark:bg-opacity-5">
                                                             <div className="flex gap-2 justify-between">
                                                                 <div>
                                                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -159,7 +159,7 @@ export default function ProjectItem({moveImageProjects, projectData}) {
                                                                 <div className="flex gap-2 mb-3">
                                                                     {
                                                                         smallProject.demoUrl !== "" ? (
-                                                                            <a href={smallProject.demoUrl}>
+                                                                            <a href={smallProject.demoUrl} target="_blank" className="transition ease-linear hover:text-cyan-500">
                                                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                                                                                     <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
                                                                                 </svg>
@@ -168,7 +168,7 @@ export default function ProjectItem({moveImageProjects, projectData}) {
                                                                     }
                                                                     {
                                                                         smallProject.githubUrl !== "" ? (
-                                                                            <a href={smallProject.githubUrl}>
+                                                                            <a href={smallProject.githubUrl} target="_blank" className="transition ease-linear hover:text-cyan-500">
                                                                                 <AiFillGithub className="w-6 h-6"/>
                                                                             </a>
                                                                         ) : null
