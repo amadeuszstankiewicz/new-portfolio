@@ -26,12 +26,12 @@ export default function About({aboutRef}) {
                         />
                     </div>
                     <div className="flex flex-col w-full lg:w-1/2">
-                        <h1 className="font-bold text-4xl">Hi, I'm Amadeusz Stankiewicz</h1>
+                        <h1 className="font-bold text-4xl">Hi, I&apos;m Amadeusz Stankiewicz</h1>
                         <h2 className="font-bold text-xl">FULLSTACK DEVELOPER</h2>
 
                         <p className="mt-5 text-xl xl:w-2/3">
                             Welcome to my portfolio page! I am a full-stack developer who loves tackling tricky problems and enjoys learning new things. 
-                            I have expertise in both front-end and back-end development, and I'm passionate about creating smart and efficient solutions.
+                            I have expertise in both front-end and back-end development, and I&apos;m passionate about creating smart and efficient solutions.
                         </p>
 
                         <div className="flex flex-wrap gap-3 mt-3 items-center">
