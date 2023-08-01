@@ -7,7 +7,7 @@ export default function Projects({projectsRef}) {
         {
             heroImg: "/projects/dnd/hero.jpg",
             title: "Fantasy Figurines",
-            description: "This is an e-commerce store built using React and Next.js. The store also includes an admin panel where products and categories can be created, edited, and deleted. Additionally, it allows for viewing of placed orders. The portal is integrated with the Stripe payment processor.",
+            description: "This is an e-commerce store built using React and Next.js. The store also includes an admin panel where products and categories can be created, edited, and deleted. Additionally, it allows for viewing of placed orders. The portal is integrated with the Stripe payment processor. Every image on this page was created using AI.",
             images: ["/projects/dnd/orders.png", "/projects/dnd/products.png", "/projects/dnd/product.png"],
             descriptionUrls: [],
             demoUrls: ["https://dnd-figures.netlify.app"],
